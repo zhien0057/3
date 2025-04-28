@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>記帳小工具</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>新增支出</h2>
+      <form id="recordForm">
+        <input type="date" id="date" required>
+        <input type="text" id="category" placeholder="類別" required>
+        <input type="number" id="amount" placeholder="金額" required>
+        <input type="text" id="note" placeholder="備註">
+        <button type="submit">新增</button>
+      </form>
+
+      <h2>設定預算</h2>
+      <form id="budgetForm">
+        <input type="number" id="budget" placeholder="預算金額" required>
+        <button type="submit">設定預算</button>
+      </form>
+
+      <div id="budgetDisplay"></div>
+      <div id="budgetProgressContainer">
+        <div id="budgetProgress"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="top-controls">
+        <select id="monthFilter">
+          <option value="">全部月份</option>
+        </select>
+        <button id="toggleView">切換模式：支出報表</button>
+      </div>
+
+      <div id="records" class="records"></div>
+
+      <div id="report" class="report" style="display: none;">
+        <canvas id="reportChart"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
